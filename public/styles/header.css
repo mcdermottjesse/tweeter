@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  
+}
+
+header {
+  
+ width: 100%;
+  height: 400px;
+  background-color: #f98fff;
+  background-image: url("https://www.transparenttextures.com/patterns/dark-denim-3.png");
+}
+
+.avatar {
+  display: flex;
+  justify-content: center;
+  
+}
+.name {
+  display: flex;
+  justify-content: center;
+  align-self: flex-end;
+  color:black;
+}
