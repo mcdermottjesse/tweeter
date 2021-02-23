@@ -47,7 +47,8 @@
   <main class="container">
     <section class="new-tweet">
       <form action="/tweets" method="POST">
-        <input placeholder="What are you humming about?">
+        <label for="tweet-text"></label>
+        <input  name="text" id="tweet-text" placeholder="What are you humming about?">
         <div>
           <button type="submit">Tweet</button>
           <output name="counter" class="counter" for="tweet-text">140</output>
