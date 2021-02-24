@@ -2,26 +2,30 @@ nav {
   display: flex;
   justify-content: space-between;
   height: 120px;
-  width: 100vw;
   background-color: #4056A1;
   color: #FFFFFF;
-  
+  position: fixed; 
+  top: 0; 
+  width: 100%;
 
  }
 
- span {
-  margin-top: 1.5em;
-  margin-bottom: 1.5em;
-  margin-left: 1.5em;
-  margin-right: 1.5em;
-font-family: 'Bungee', cursive;
+ .logo {
+  margin: 1.5em;
+  font-family: 'Bungee', cursive;
  
 }
 
  h5 {
-  margin-top: 1.5em;
-  margin-bottom: 1.5em;
-  margin-left: 1.5em;
+  position: fixed;
+  margin-left: 85em;
   margin-right: 1.5em;
   text-align: right;
  }
+
+ i.fa-hand-point-down {
+  position: relative;
+  margin-right: 5em;
+  margin-top: 3em;
+  color: red;
+}
