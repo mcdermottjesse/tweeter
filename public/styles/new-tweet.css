@@ -3,19 +3,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 500px;
-  padding-top: 50px;
-  padding-right: 100px;
-  padding-bottom: 50px;
-  padding-left: 100px;
-
+  height: 300px;
+  padding: 25px 100px 25px 100px;
+ 
 }
 
 input {
   margin-left: 2em;
   width: 58em;
   height: 3em;
-  padding: 1%;
+  padding: 10px;
   border-width: thick;
 }
 
@@ -23,14 +20,19 @@ input {
 
   margin-left: 51.5em;
   font-family: 'Bungee', cursive;
-
 }
 
 button {
-margin-top: 2em;
-margin-left: 2em;
+ margin-top: 2em;
+ margin-left: 2em;
  font-family: 'Bungee', cursive;
  color: #FFFFFF;
  background-color: #4056A1;
 
+}
+
+.overcount {
+  margin-left: 51.5em;
+  font-family: 'Bungee', cursive;
+  color: red;
 }
