@@ -1,0 +1,95 @@
+#container article {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: start;
+  position: relative;
+  height: 350px;
+  padding-top: 25px;
+  padding-right: 25px;
+  padding-bottom: 25px;
+  padding-left: 25px;
+
+}
+
+.tweeter-one  {
+  
+  border-top: 5px solid #000;
+  border-left: 5px solid #000;
+  border-right: 5px solid #000;
+  border-bottom: 5px solid #000;
+  margin-bottom: 3em;
+  
+
+
+}
+
+.tweeter-one header{
+
+  border-bottom: 3px solid #000;;
+
+}
+
+.tweeter-one footer {
+  margin-top: 2em;
+  margin-right: 35em;
+}
+
+.tweeter-two{
+
+  border-top: 5px solid #000;
+  border-left: 5px solid #000;
+  border-right: 5px solid #000;
+  border-bottom: 5px solid #000;
+  margin-bottom: 3em;
+
+
+}
+
+.tweeter-two header{
+  
+  border-bottom: 3px solid #000;
+  
+}
+
+.tweeter-two footer{
+  
+  margin-top: 2em;
+  margin-right: 35em;
+}
+
+i.fa-flag {
+position: relative;
+left: 37em;
+bottom: 2em;
+
+}
+
+i.fa-thumbs-up {
+
+position: relative;
+left: 35em;
+bottom: 2em;
+}
+
+
+  i.fa-comment {
+    position: relative;
+    left: 36em;
+    bottom: 2em;
+  }
+  
+  i.fa-grin-beam {
+
+    position: relative;
+    font-size: 40px;
+
+
+  }
+  i.fa-dog {
+    position: relative;
+    font-size: 40px;
+
+  }
+
+ 
