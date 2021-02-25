@@ -19,22 +19,25 @@ const tweetData = [ //created var to hold data
 ]
 
 const createTweetElement = function (tweet) {
-  const $newTweet = $("<article>"); 
-  const html = `
+  const $newTweet = $("<article>");
+  const saveChar = $("<p>").text(tweet.content.text); //prevents cross-site scripting
+  const header = `
     <header>
       <i class='far fa-grin-beam'></i>
       <h4>${tweet.user.name}</h4>
       <span class="tooltiptext">${tweet.user.handle}</span>
-      <p> ${tweet.content.text}</p>
     </header>
+    `
+  const footer = `
     <footer>
-      <p>${tweet.created_at}</p>
+      <div>${tweet.created_at}</div>
       <i class='fas fa-thumbs-up'></i>
       <i class='fas fa-comment'></i>
       <i class='fa fa-flag'></i>
     </footer>
     `
-  let tweetElement = $newTweet.append(html); //inserts html content as placeholder for tweets
+  let tweetElement = $newTweet.append(header).append(saveChar).append(footer); //inserts html content as placeholder for tweets
+
   return tweetElement;
 }
 
@@ -47,41 +50,39 @@ const renderTweets = function (tweets) {
   return;
 }
 
-$(document).ready(function () { 
+$(document).ready(function () {
   // renderTweets(tweetData);
   $('#submit-tweet').submit(function (event) {
     event.preventDefault(); //stopping the form submit button from executing
-    console.log($(this).serialize().length)
-    const serializeData = $(this).serialize() //encodes for elements into string
-    if(serializeData.length > 145) {
-      alert("Too many characters") 
-    } else if (serializeData.length <= 5){
+    const serializeData = $(this).serialize() //encodes form elements into string
+    if (serializeData.length >= 145) {
+      alert("Too many characters")
+    } else if (serializeData.length <= 5) {
       alert("No characters have been enetered")
     } else {
-    $.ajax({
-      url: "/tweets",
-      method: "POST",
-      data: serializeData
-    }).then(function (result) {
-      console.log("made it here", result);
-    })
-  }
+      $.ajax({
+        url: "/tweets",
+        method: "POST",
+        data: serializeData,
+        success: function () {
+          $('#tweet-text').val(''); //clears text box
+          loadtweets();//calling function to add text without page refresh
+        }
+      })
+    }
   });
 
-  const loadtweets = function (){
+  const loadtweets = function () {
     $.ajax({
       url: "/tweets",
       method: "GET",
       dataType: "JSON",
-      //success: alert("success")
-     })
-    .then(function (result) {
-      renderTweets(result)
-  });
+    })
+      .then(function (result) {
+        renderTweets(result)
+      });
   };
-
   loadtweets();
-
 })
 
 
