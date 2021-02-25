@@ -3,6 +3,8 @@
 
 <head>
   <!-- Meta Information -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tweeter - Home Page</title>
 
   <!-- External CSS -->
@@ -37,8 +39,9 @@
   <!-- Top nav bar (fixed) -->
   <nav>
 
-    <span>tweeter</span>
+    <span class="logo">tweeter</span>
     <h5>Write a new tweet</h5>
+    <i class='far fa-hand-point-down'></i>
   </nav>
   <header class="profile-header">
     <div class="avatar">
@@ -52,7 +55,7 @@
   <!-- Page-specific (main) content here -->
   <main class="container">
     <section class="new-tweet">
-      <form action="/tweets" method="POST">
+      <form id="submit-tweet" action="/tweets" method="POST">
         <label for="tweet-text"></label>
         <input name="text" id="tweet-text" placeholder="What are you humming about?">
         <div>
@@ -62,40 +65,7 @@
       </form>
     </section>
     <section id="container">
-      <article class="tweeter-one">
-        <header>
-          <i class='far fa-grin-beam'></i>
-        <h4>Jesse</h4>
-        <p> At first flash of Eden We race down to the sea Standing there on freedom's shore
-          Waiting for the sun</p>
-        </header>
-          <footer>
-           <p>2 days ago</p>
-           <i class='fas fa-thumbs-up'></i>
-           <i class='fas fa-comment'></i>
-           <i class='fa fa-flag'></i>
-           
-          </footer>
-      </article>
-      <article class="tweeter-two">
-        <header>
-          <i class='fas fa-dog'></i>
-          <h4>Tiggy</h4>
-          <p> Woof, woof, woof, woof, woof, woof, woof, woof, woof, woof, woof, woof, woof, woof, woof, woof, woof </p>
-          </header>
-            <footer>
-             <p>4 days ago</p>
-             <i class='fas fa-thumbs-up'></i>
-             <i class='fas fa-comment'></i>
-             <i class='fa fa-flag'></i>
-            </footer>
-      </article>
     </section>
-
-<footer>
-</footer>
   </main>
-
 </body>
-
 </html>
