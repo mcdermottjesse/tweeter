@@ -1,4 +1,5 @@
 
+
 .new-tweet {
   display: flex;
   justify-content: center;
@@ -6,6 +7,30 @@
   height: 300px;
   padding: 25px 100px 25px 100px;
  
+}
+
+div.err-border {
+  display: none;
+  padding: 15px;
+  border: 4px solid #D8000C;
+  margin-bottom: 1em;
+}
+
+.error{
+font-family: 'Source Sans Pro', sans-serif;
+margin: 0.5em;
+color: #D8000C;
+}
+
+.fa-times {
+  margin-right: 0.5em;
+  color: #D8000C
+}
+
+.fa-skull-crossbones {
+  margin-left: 0.5em;
+  color: #D8000C
+  
 }
 
 input {
