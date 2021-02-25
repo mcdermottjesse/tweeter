@@ -23,7 +23,7 @@ const createTweetElement = function (tweet) {
   const saveChar = $("<p>").text(tweet.content.text); //prevents cross-site scripting
   const header = `
     <header>
-      <i class='far fa-grin-beam'></i>
+      <em class='far fa-grin-beam'></em>
       <h4>${tweet.user.name}</h4>
       <span class="tooltiptext">${tweet.user.handle}</span>
     </header>
@@ -31,9 +31,9 @@ const createTweetElement = function (tweet) {
   const footer = `
     <footer>
       <div>${tweet.created_at}</div>
-      <i class='fas fa-thumbs-up'></i>
-      <i class='fas fa-comment'></i>
-      <i class='fa fa-flag'></i>
+      <em class='fas fa-thumbs-up'></em>
+      <em class='fas fa-comment'></em>
+      <em class='fa fa-flag'></em>
     </footer>
     `
   let tweetElement = $newTweet.append(header).append(saveChar).append(footer); //inserts html content as placeholder for tweets
@@ -55,10 +55,19 @@ $(document).ready(function () {
   $('#submit-tweet').submit(function (event) {
     event.preventDefault(); //stopping the form submit button from executing
     const serializeData = $(this).serialize() //encodes form elements into string
-    if (serializeData.length >= 145) {
-      alert("Too many characters")
+    if (serializeData.length > 145) {
+      $( "div.err-border" ).slideDown( "slow").html(`
+      <h3 class="error">
+      <em class='fas fa-times'></em>
+      Your tweet exceeded the 140 character limit
+      <em class='fas fa-skull-crossbones'></em>
+      </h3>`
+      )
+      // alert("Too many characters")
     } else if (serializeData.length <= 5) {
-      alert("No characters have been enetered")
+      $( "div.err-border" ).slideDown( "slow", function() {
+        
+      });
     } else {
       $.ajax({
         url: "/tweets",
