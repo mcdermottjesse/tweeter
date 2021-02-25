@@ -4,7 +4,7 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-const tweetData = [
+const tweetData = [ //created var to hold data
   {
     "user": {
       "name": "Newton",
@@ -19,7 +19,7 @@ const tweetData = [
 ]
 
 const createTweetElement = function (tweet) {
-  const $newTweet = $("<article>");
+  const $newTweet = $("<article>"); 
   const html = `
     <header>
       <i class='far fa-grin-beam'></i>
@@ -34,25 +34,30 @@ const createTweetElement = function (tweet) {
       <i class='fa fa-flag'></i>
     </footer>
     `
-  let tweetElement = $newTweet.append(html);
+  let tweetElement = $newTweet.append(html); //inserts html content as placeholder for tweets
   return tweetElement;
 }
 
 const renderTweets = function (tweets) {
-  $('#container').empty();
+  $('#container').empty(); //removes inputted callbacks
   for (let tweet of tweets) {
     const formattedTweet = createTweetElement(tweet);
-    $('#container').append(formattedTweet);
+    $('#container').append(formattedTweet); //accessed data obj to format outputted tweets
   }
   return;
 }
 
-$(document).ready(function () {
-  renderTweets(tweetData);
+$(document).ready(function () { 
+  // renderTweets(tweetData);
   $('#submit-tweet').submit(function (event) {
-    event.preventDefault();
-    console.log($(this).serialize())
-    const serializeData = $(this).serialize()
+    event.preventDefault(); //stopping the form submit button from executing
+    console.log($(this).serialize().length)
+    const serializeData = $(this).serialize() //encodes for elements into string
+    if(serializeData.length > 145) {
+      alert("Too many characters") 
+    } else if (serializeData.length <= 5){
+      alert("No characters have been enetered")
+    } else {
     $.ajax({
       url: "/tweets",
       method: "POST",
@@ -60,6 +65,7 @@ $(document).ready(function () {
     }).then(function (result) {
       console.log("made it here", result);
     })
+  }
   });
 
   const loadtweets = function (){
@@ -71,7 +77,6 @@ $(document).ready(function () {
      })
     .then(function (result) {
       renderTweets(result)
-      
   });
   };
 
