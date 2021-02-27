@@ -31,9 +31,11 @@ const createTweetElement = function (tweet) {
   const footer = `
     <footer>
       <div>${tweet.created_at}</div>
+      <div class="icons">
       <em class='fas fa-thumbs-up'></em>
       <em class='fas fa-comment'></em>
       <em class='fa fa-flag'></em>
+      </div>
     </footer>
     `
   let tweetElement = $newTweet.append(header).append(saveChar).append(footer); //inserts html content as placeholder for tweets
@@ -45,7 +47,7 @@ const renderTweets = function (tweets) {
   $('#container').empty(); //removes inputted callbacks
   for (let tweet of tweets) {
     const formattedTweet = createTweetElement(tweet);
-    $('#container').append(formattedTweet); //accessed data obj to format outputted tweets
+    $('#container').prepend(formattedTweet); //accessed data obj to format outputted tweets
   }
   return;
 }
@@ -56,7 +58,7 @@ $(document).ready(function () {
     event.preventDefault(); //stopping the form submit button from executing
     const serializeData = $(this).serialize() //encodes form elements into string
     if (serializeData.length > 145) {
-      $( "div.err-border" ).slideDown( "slow").html(`
+      $( "div.err-border" ).slideDown("slow").html(`
       <h3 class="error">
       <em class='fas fa-times'></em>
       Your tweet exceeded the 140 character limit
@@ -65,9 +67,13 @@ $(document).ready(function () {
       )
       // alert("Too many characters")
     } else if (serializeData.length <= 5) {
-      $( "div.err-border" ).slideDown( "slow", function() {
-        
-      });
+      $( "div.err-border" ).slideDown("slow").html(`
+      <h3 class="error">
+      <em class='fas fa-times'></em>
+      No tweeting was detected
+      <em class='fas fa-skull-crossbones'></em>
+      </h3>`
+      )
     } else {
       $.ajax({
         url: "/tweets",
