@@ -4,19 +4,19 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-const tweetData = [ //created var to hold data
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png",
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  }
-]
+  
+// Subtract one day in milliseconds (oneDayMs) times the tweets length minus the current index.
+// This keeps the newest tweets at the bottom, and allows for further tweets to be added.
+
+const setDay = function (created_at) {
+  ms = Date.now() - created_at
+  days = Math.floor(ms / (24*60*60*1000));
+  return days;
+};
+
+// $( "button" ).click(function() {
+//   $( "fas fa-times" ).remove();
+// type="submit"
 
 const createTweetElement = function (tweet) {
   const $newTweet = $("<article>");
@@ -30,7 +30,7 @@ const createTweetElement = function (tweet) {
     `
   const footer = `
     <footer>
-      <div>${tweet.created_at}</div>
+      <div>${setDay(tweet.created_at)} days ago</div>
       <div class="icons">
       <em class='fas fa-thumbs-up'></em>
       <em class='fas fa-comment'></em>
@@ -61,16 +61,15 @@ $(document).ready(function () {
       $( "div.err-border" ).slideDown("slow").html(`
       <h3 class="error">
       <em class='fas fa-times'></em>
-      Your tweet exceeded the 140 character limit
+      Tweet exceeded 140 character limit
       <em class='fas fa-skull-crossbones'></em>
       </h3>`
       )
-      // alert("Too many characters")
     } else if (serializeData.length <= 5) {
       $( "div.err-border" ).slideDown("slow").html(`
       <h3 class="error">
       <em class='fas fa-times'></em>
-      No tweeting was detected
+      No tweet detected
       <em class='fas fa-skull-crossbones'></em>
       </h3>`
       )
