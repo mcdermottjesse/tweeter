@@ -1,25 +1,11 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
-
-  
-// Subtract one day in milliseconds (oneDayMs) times the tweets length minus the current index.
-// This keeps the newest tweets at the bottom, and allows for further tweets to be added.
-
 const setDay = function (created_at) {
   ms = Date.now() - created_at
-  days = Math.floor(ms / (24*60*60*1000));
+  days = Math.floor(ms / (24 * 60 * 60 * 1000)); //how many days ago tweet was executed
   return days;
 };
 
-// $( "button" ).click(function() {
-//   $( "fas fa-times" ).remove();
-// type="submit"
-
 const createTweetElement = function (tweet) {
-  const $newTweet = $("<article>");
+  const $newTweet = $("<article>"); //tag for new tweets
   const saveChar = $("<p>").text(tweet.content.text); //prevents cross-site scripting
   const header = `
     <header>
@@ -53,20 +39,19 @@ const renderTweets = function (tweets) {
 }
 
 $(document).ready(function () {
-  // renderTweets(tweetData);
   $('#submit-tweet').submit(function (event) {
     event.preventDefault(); //stopping the form submit button from executing
     const serializeData = $(this).serialize() //encodes form elements into string
-    if (serializeData.length > 145) {
-      $( "div.err-border" ).slideDown("slow").html(`
+    if (serializeData.length > 145) { //conditionals for error message
+      $("div.err-border").show().slideDown("slow").html(`
       <h3 class="error">
       <em class='fas fa-times'></em>
-      Tweet exceeded 140 character limit
+      Over character limt
       <em class='fas fa-skull-crossbones'></em>
       </h3>`
       )
     } else if (serializeData.length <= 5) {
-      $( "div.err-border" ).slideDown("slow").html(`
+      $("div.err-border").show().slideDown("slow").html(`
       <h3 class="error">
       <em class='fas fa-times'></em>
       No tweet detected
@@ -80,6 +65,8 @@ $(document).ready(function () {
         data: serializeData,
         success: function () {
           $('#tweet-text').val(''); //clears text box
+          $("div.err-border").hide()
+          $("#resetcounter").html('140');
           loadtweets();//calling function to add text without page refresh
         }
       })
@@ -93,10 +80,15 @@ $(document).ready(function () {
       dataType: "JSON",
     })
       .then(function (result) {
-        renderTweets(result)
+        renderTweets(result);
       });
   };
   loadtweets();
-})
+
+  $('.writetweet').on('click', function () {
+    $('#tweet-text').val('');
+    $('#tweet-text').focus()
+});
+});
 
 

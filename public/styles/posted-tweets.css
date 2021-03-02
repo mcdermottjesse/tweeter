@@ -1,116 +1,92 @@
-#container article {
+
+#container {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  align-items: start;
-  position: relative;
-  height: 350px;
+  height: 80px;
+  width: 700px;
   padding: 25px;
 }
 
+article  {
+  border: 5px solid #000;
+  padding: 20px;
+  margin-bottom: 3em;
+  max-width: 100%;
+}
+
 h4 {
-  position: relative;
+ position: relative;
   margin-left: 3em;
   margin-top: -1.5em;
-  margin-bottom: 4em;
-
+  margin-bottom: 1em; 
 }
 
-.tweeter-one  {
-  border: 5px solid #000;
-  margin-bottom: 3em;
-}
-
-.tweeter-one:hover  {
+article:hover  {
   box-shadow: 20px 20px 30px -10px #192824;
 }
 
-.tweeter-one header{
-  border-bottom: 3px solid #000;;
-}
-
-.tweeter-one footer {
-  margin-top: 2em;
-  margin-right: 35em;
-}
-
-.tweeter-two{
-  border: 5px solid #000;
-  margin-bottom: 3em;
-}
-
-.tweeter-two:hover  {
-  box-shadow: 20px 20px 30px -10px #192824;
-}
-
-.tweeter-two header{
+ p {
+  max-width: 100%;
+ word-break: break-word;
+  display:flex;
+  padding: 5px;
   border-bottom: 3px solid #000;
+  padding-right: 0;
 }
 
-.tweeter-two footer{
-  margin-top: 2em;
-  margin-right: 35em;
+footer {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-top: 1.5em;
+  margin-bottom: -2em;
 }
 
-i.fa-flag {
-position: relative;
-left: 37em;
-bottom: 2em;
-color: #4056A1;
-
+.icons {
+  display: flex;
+  gap: 25px;
 }
 
-i.fa-thumbs-up {
-position: relative;
-left: 35em;
-bottom: 2em;
+em.fa-flag {
 color: #4056A1;
 }
 
-
-
-i.fa-comment {
+em.fa-thumbs-up {
 position: relative;
-left: 36em;
-bottom: 2em;
 color: #4056A1;
+}
+
+em.fa-comment {
+color: #4056A1;
+margin-bottom: 2em
   }
   
-i.fa-grin-beam {
+em.fa-grin-beam {
 position: relative;
 font-size: 40px;
   }
 
-  i.fa-dog {
+  em.fa-dog {
   position: relative;
   font-size: 40px;
   }
 
- 
-  .tweeter-one .tooltiptext {
+  article .tooltiptext {
     visibility: hidden;
-    color:  #4056A1;;
-    border-radius: 7px;
-    padding: 5px 0;
-    position: absolute;
-    top: 30px;
-    left: 80%;
+    color:  #4056A1;
+    margin-left: 80%; 
   }
   
-  .tweeter-one:hover .tooltiptext {
+  article:hover .tooltiptext {
     visibility: visible;
   }
 
-  .tweeter-two .tooltiptext {
-    visibility: hidden;
-    color: #4056A1;;
-    border-radius: 7px;
-    padding: 5px 0;
-    position: absolute;
-    top: 30px;
-    left: 80%;
-  }
-  
-  .tweeter-two:hover .tooltiptext {
-    visibility: visible;
+  @media (min-width: 1024px) {
+
+    article  {
+      border: 5px solid #000;
+      padding: 20px;
+      margin-bottom: 3em;
+    }
   }
