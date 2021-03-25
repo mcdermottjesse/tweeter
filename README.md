@@ -18,11 +18,11 @@ localhost:8080/
 
 ## Final Product
 
-!["screenshot of No tweet detected error"] (https://github.com/mcdermottjesse/tweeter/blob/master/docs/No%20tweet%20detected%20screenshot.png?raw=true)
+!["screenshot of No tweet detected error"](https://github.com/mcdermottjesse/tweeter/blob/master/docs/No%20tweet%20detected%20screenshot.png?raw=true)
 
-!["screenshot of error rendered down format"] (https://github.com/mcdermottjesse/tweeter/blob/master/docs/Rendered%20down%20screenshot.png?raw=true)
+!["screenshot of error rendered down format"](https://github.com/mcdermottjesse/tweeter/blob/master/docs/Rendered%20down%20screenshot.png?raw=true)
 
-!["screenshot of tweet"] (https://github.com/mcdermottjesse/tweeter/blob/master/docs/Screenshot%20of%20tweet%20in%20Tweeter.png?raw=true)
+!["screenshot of tweet"](https://github.com/mcdermottjesse/tweeter/blob/master/docs/Screenshot%20of%20tweet%20in%20Tweeter.png?raw=true)
 
 
 #Dependencies
